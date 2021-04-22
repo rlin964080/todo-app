@@ -10,14 +10,14 @@ from time import sleep
 
 
 def test_app():
-    chrome_options=webdriver.ChromeOptions()
+    options=webdriver.ChromeOptions()
 
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("window-size=1400,2100") 
-    chrome_options.add_argument('--disable-gpu')
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    options.add_argument("window-size=1400,2100") 
+    options.add_argument('--disable-gpu')
 
-    chrome_driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver", chrome_options=chrome_options)
+    chrome_driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver", chrome_options=options)
 
     chrome_driver.get('http://127.0.0.1:5000/')
  
