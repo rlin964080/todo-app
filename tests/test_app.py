@@ -26,5 +26,3 @@ def test_app():
     arr = chrome_driver.find_elements_by_xpath("//div[@class='ui segment']")
     assert len(arr) == num_elements
     chrome_driver.close()
-
-    assert len(arr) == num_elements    
