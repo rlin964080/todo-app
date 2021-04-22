@@ -16,8 +16,7 @@ jobs:
           command: |
             sudo apt-get install -yqq unzip curl
             wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
-            chmod +x /usr/local/bin/chromedriver
-            unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
+            sudo unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
             pip install -r requirements.txt
       # Step 3: run application
       - run: 
