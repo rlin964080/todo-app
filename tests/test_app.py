@@ -12,7 +12,7 @@ from time import sleep
 def test_app():
     chrome_driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver")
 
-    chrome_driver.get('')
+    chrome_driver.get('http://127.0.0.1:5000/')
     chrome_driver.maximize_window()
  
     chrome_driver.find_element_by_name("title").send_keys("first test")
