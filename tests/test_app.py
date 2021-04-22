@@ -10,10 +10,16 @@ from time import sleep
 
 
 def test_app():
-    chrome_driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver")
+    chrome_options=webdriver.ChromeOptions()
+
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("window-size=1400,2100") 
+    chrome_options.add_argument('--disable-gpu')
+
+    chrome_driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver", chrome_options=chrome_options)
 
     chrome_driver.get('http://127.0.0.1:5000/')
-    chrome_driver.maximize_window()
  
     chrome_driver.find_element_by_name("title").send_keys("first test")
     chrome_driver.find_element_by_xpath("//form[@class='ui form']/button[1]").click()
