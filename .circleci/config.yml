@@ -10,10 +10,13 @@ jobs:
     steps:
       # Step 1: obtain repo from GitHub
       - checkout
-      # Step 2: create virtual env and install dependencies
+      # Step 2: install dependencies
       - run:
-          name: install dependencies
+          name: install dependencies and chromedriver
           command: |
+            apt-get install -yqq unzip curl
+            wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
+            unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
             pip install -r requirements.txt
       # Step 3: run application
       - run: 
